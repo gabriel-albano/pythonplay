@@ -20,19 +20,19 @@ def getLogger(name):
     ch1 = logging.StreamHandler()
 
     # create a file handler
-    LOG_FILENAME = 'pinger.log'
+    LOG_FILENAME = 'test.log'
     #ch2 = logging.FileHandler(home + '/test.log')
     # Add the log message handler to the logger
     ch2 = logging.handlers.RotatingFileHandler(
-              LOG_FILENAME, maxBytes=62500, backupCount=10)
+              LOG_FILENAME, maxBytes=20, backupCount=5)
 
     # Set log Lever
     #ch.setLevel(logging.DEBUG)
 
     # create formatter
-    #formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)-8s - %(message)s','%m/%d/%Y %I:%M:%S %p')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)-8s - %(message)s','%m/%d/%Y %I:%M:%S %p')
+    #formatter = logging.Formatter('%(message)s')
 
-    formatter = logging.Formatter('%(asctime)s - %(message)s','%m/%d/%Y %I:%M:%S %p')
 
     # add formatter to ch
     ch1.setFormatter(formatter)
@@ -57,7 +57,7 @@ def test():
 
 def main():
     setup()
-    #test()
+    test()
 
 if __name__ == '__main__':
     main()
